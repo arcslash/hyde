@@ -2,3 +2,6 @@
 data/
 CMakeFiles/
 .git/
+cmake_install.cmake
+Makefile
+CMakeCache.txt
