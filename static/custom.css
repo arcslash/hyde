@@ -1,0 +1,27 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
+#video_area{
+  padding: 10px 10px 10px 10px;
+  width:640px;
+  height:480px;
+
+
+}
+
+#view_control_area{
+  padding: 10px 10px 10px 10px;
+
+}
+
+#garment_image{
+  width:320px;
+  height:240px;
+}
+#measurement_title{
+    text-align: center;
+
+}
+#btn_getmeasurements{
+    align="right";
+    padding: 10px 10px 10px 10px;
+
+}
