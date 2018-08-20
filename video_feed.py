@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, Response
 import cv2
+from core import utils as utils
+from core import models as models
+from core import measure
 
 app = Flask(__name__)
 
@@ -33,12 +36,18 @@ def gen(camera):
 def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/measure_feed')
+def measure_feed():
+    success, image = cv2.imread('core/outputs/original_convert.jpg')
+    ret, jpeg = cv2.imencode('.jpg', image)
+    return jpeg.tobytes()
+    return Response(gen(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
-@app.route("/hello", methods=['GET', 'PUT'])
-def say_hello():
-    print("Hello")
-    return "success"
+@app.route("/measure", methods=['GET', 'PUT'])
+def measure():
+    measure.run()
+    return "execution success"
 
 
 if __name__ == '__main__':
