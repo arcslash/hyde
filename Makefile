@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named kitty
+
+# Build rule for target.
+kitty: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kitty
+.PHONY : kitty
+
+# fast build rule for target.
+kitty/fast:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/build
+.PHONY : kitty/fast
+
+#=============================================================================
 # Target rules for targets named corner
 
 # Build rule for target.
@@ -150,6 +163,33 @@ corner.cpp.s:
 	$(MAKE) -f CMakeFiles/corner.dir/build.make CMakeFiles/corner.dir/corner.cpp.s
 .PHONY : corner.cpp.s
 
+kitty.o: kitty.cpp.o
+
+.PHONY : kitty.o
+
+# target to build an object file
+kitty.cpp.o:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/kitty.cpp.o
+.PHONY : kitty.cpp.o
+
+kitty.i: kitty.cpp.i
+
+.PHONY : kitty.i
+
+# target to preprocess a source file
+kitty.cpp.i:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/kitty.cpp.i
+.PHONY : kitty.cpp.i
+
+kitty.s: kitty.cpp.s
+
+.PHONY : kitty.s
+
+# target to generate assembly for a file
+kitty.cpp.s:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/kitty.cpp.s
+.PHONY : kitty.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... kitty"
 	@echo "... corner"
 	@echo "... corner.o"
 	@echo "... corner.i"
 	@echo "... corner.s"
+	@echo "... kitty.o"
+	@echo "... kitty.i"
+	@echo "... kitty.s"
 .PHONY : help
 
 

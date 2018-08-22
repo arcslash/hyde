@@ -53,5 +53,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/kitty.dir/DependInfo.cmake"
   "CMakeFiles/corner.dir/DependInfo.cmake"
   )

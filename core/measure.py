@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 from core import *
 from PIL import Image
 import numpy as np
 import cv2
 import scipy.misc
 from subprocess import call
-
+import time
 
 typex = 'bra'
 needtrain = False
@@ -16,7 +17,7 @@ def run():
         models.train_main_model(x_train, y_train)
     x_off = 100
     y_off = 50
-    filename = "data/0008.jpg"
+    filename = "core/testcalibnew1.jpg"
     y_predict = models.predict_main_model(filename)
     points = y_predict[0]
     img = Image.open(filename)
@@ -40,10 +41,12 @@ def run():
         file.close()
 
     print("[+]Running Nihals code")
-    call(["cmake","core/build"])
+    #call(["cmake","core/build"])
     call(["make"])
     call(["./corner"])
-    
+    #time.sleep(3)
+    call(["./kitty"])
+
 
 if __name__ == '__main__':
     print("[+]Running individually as the main module")

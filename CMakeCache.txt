@@ -114,7 +114,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=corner
+CMAKE_PROJECT_NAME:STATIC=kitty
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -288,6 +288,12 @@ corner_BINARY_DIR:STATIC=/media/ishara/Data/MAS/measurement_detection/Hydra_v1
 
 //Value Computed by CMake
 corner_SOURCE_DIR:STATIC=/media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/build
+
+//Value Computed by CMake
+kitty_BINARY_DIR:STATIC=/media/ishara/Data/MAS/measurement_detection/Hydra_v1
+
+//Value Computed by CMake
+kitty_SOURCE_DIR:STATIC=/media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/build
 
 
 ########################

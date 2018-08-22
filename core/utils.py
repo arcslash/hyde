@@ -23,9 +23,9 @@ Requirements:
     *labelme or compatible labeled dataset with json files
 '''
 def load_dataset():
-    dataset_folder = "../data/"
-    train_folder = "../data/"
-    test_folder = "../data/"
+    dataset_folder = "data/"
+    train_folder = "data/"
+    test_folder = "data/"
 
     x_train = []
     y_train = []

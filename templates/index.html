@@ -9,7 +9,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">HYDE - The Measurement Analyzing Tool</a>
+  <a class="navbar-brand" href="localhost:5000">The Measurement Analyzing Tool</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -41,99 +41,77 @@
 
 <!--Start body container-->
 <div class="w3-container">
-  <div class= "row">
-    <div class="col-sm-5">
-      <div id="video_area">
-          <!-- <img id='video_feed' align="left" src="http://localhost:5000/video_feed"> -->
-          <!-- <img id='video_feed' src="static/test_image.jpg"/> -->
-          <img id='video_feed'>
-          video_path
-      </div>
-      <div id="view_control_area">
-        <!--<Button onclick="printStuff()" class="btn btn-primary btn-lg">Change Background</Button>-->
+  <div  class="row">
+    <div class="col-md-6" style="background-color: black;">
+        <img id='video_feed' align="left" src="data/0001.jpg">
 
-      </div>
-
+         <!-- <img class="img-fluid" src="http://localhost:5000/video_feed" alt="Card image cap"> -->
     </div>
-<!--Start body container-->
-    <div class="col-sm-7">
-      <div id="view_merasurement_area">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title" id="measurement_title">Measurements Info</h3>
-          </div>
-          <div class="panel-body">
-            <table class="table table-primary">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Actual Measurement</th>
-                        <th scope="col">Real Measurement</th>
-                        <th scope="col">Validation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                    <tr>
-                         <th scope="row">3</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                    <tr>
-                         <th scope="row">4</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                    <tr>
-                         <th scope="row">5</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                    <tr>
-                         <th scope="row">6</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>CORRECT</td>
-                    </tr>
-                </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <Button onclick="measure()" class="btn btn-primary btn-lg" id="btn_getmeasurements">Get measurements</Button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-        <div id="garment_area">
-            <!-- <img id='video_feed' align="left" src="http://localhost:5000/video_feed"> -->
+    <div class="col-md-6">
+      <div class="card" style="margin:10px">
+               <!--Card image-->
+               <img class="img-fluid" src="static/image002.jpg" height="220" width="260" alt="Card image cap">
 
-          <h6>Current Garment</h6>
-          <img id='garment_image' height="120" width="160" src="static/image002.jpg"/>
-        </div>
-      </div>
+               <!--Card content-->
+               <div class="card-body">
+                   <!--Title-->
+                   <h4 class="card-title">Current Garment</h4>
+                   <!--Text-->
+                   <p>Garment Name: FlyKnit Bra</p>
+                   <p>Added Date: 2018/08/15</p>
+                   <p>Current Status:In Production</p>
+
+                       <Button onclick="measure()" class="btn btn-primary btn-sm" id="btn_getmeasurements">Measure</Button>
+
+
+               </div>
+           </div>
+      <!--<h6>Current Garment</h6>
+      <img id='garment_image'class="img-thumbnail" height="120" width="160" src="static/image002.jpg"/>
       <div class="col-sm-2">
         <p>Garment Name: FlyKnit Bra</p>
         <p>Added Date: 2018/08/15</p>
         <p>Current Status:In Production</p>
-          <p>More info</p>
-      </div>
+          <Button onclick="measure()" class="btn btn-primary btn-lg" id="btn_getmeasurements">ADD NEW GARMENT</Button>
+      </div>-->
+
+  </div></div>
+  <div  class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Param</th>
+            <th scope="col">Merasurement</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Width</td>
+            <td>10 mm</td>
+
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Height</td>
+            <td>20 mm</td>
+
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Sply</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
- </div>
+</div>
+
+
 
 
 </body>

@@ -3,7 +3,7 @@ from flask import Flask, render_template, Response
 import cv2
 from core import utils as utils
 from core import models as models
-from core import measure
+from core.measure import run
 
 app = Flask(__name__)
 
@@ -36,6 +36,7 @@ def gen(camera):
 def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
 @app.route('/measure_feed')
 def measure_feed():
     success, image = cv2.imread('core/outputs/original_convert.jpg')
@@ -46,7 +47,7 @@ def measure_feed():
 
 @app.route("/measure", methods=['GET', 'PUT'])
 def measure():
-    measure.run()
+    run()
     return "execution success"
 
 

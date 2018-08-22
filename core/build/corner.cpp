@@ -165,6 +165,7 @@ int main(int argc, char* argv[]) {
 	Mat original_img;
 	Point finalp;
 	String path = argv[1];
+	ofstream pointsFile;
 	cout << "[+]Reading Path:"<<path<<endl;
 	double xa[10];
 	double ya[10];
@@ -203,6 +204,9 @@ int main(int argc, char* argv[]) {
 
 	}
 	in.close();
+	pointsFile.open ("core/outputs/points.txt");
+
+
 
 	for (int a = 0; a < crops; a++) {
 		Mat img, gray, thresh;
@@ -244,12 +248,17 @@ int main(int argc, char* argv[]) {
 		circle(img, ppp0, 5, Scalar(0, 255, 0), 1);	circle(img, ppp0, 2, Scalar(0, 0, 255), -1);
 		finalp.x = xa[a] + ppp0.x;
 		finalp.y = ya[a] + ppp0.y;
+		pointsFile <<finalp.x<<"\n"<<finalp.y<<"\n";
+
 		circle(original_img, finalp, 5, Scalar(0, 255, 0), 1);	circle(original_img, finalp, 2, Scalar(0, 0, 255), -1);
 		cout << "Point at:"<<finalp.x<<endl;
 
 		imwrite(path + "core/outputs/im" + idx + ".jpg", img);
 		imwrite(path + "core/outputs/pt" + idx + ".jpg", D0);
 	}
+
+
+  pointsFile.close();
 
 	imwrite(path + "core/outputs/original_convert.jpg", original_img);
 

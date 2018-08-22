@@ -1,3 +1,4 @@
 /media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/CMakeFiles/edit_cache.dir
 /media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/CMakeFiles/rebuild_cache.dir
+/media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/CMakeFiles/kitty.dir
 /media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/CMakeFiles/corner.dir

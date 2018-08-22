@@ -60,6 +60,43 @@ CMAKE_SOURCE_DIR = /media/ishara/Data/MAS/measurement_detection/Hydra_v1/core/bu
 CMAKE_BINARY_DIR = /media/ishara/Data/MAS/measurement_detection/Hydra_v1
 
 #=============================================================================
+# Target rules for target CMakeFiles/kitty.dir
+
+# All Build rule for target.
+CMakeFiles/kitty.dir/all:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/depend
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/ishara/Data/MAS/measurement_detection/Hydra_v1/CMakeFiles --progress-num=3,4 "Built target kitty"
+.PHONY : CMakeFiles/kitty.dir/all
+
+# Include target in all.
+all: CMakeFiles/kitty.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/kitty.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/ishara/Data/MAS/measurement_detection/Hydra_v1/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kitty.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/ishara/Data/MAS/measurement_detection/Hydra_v1/CMakeFiles 0
+.PHONY : CMakeFiles/kitty.dir/rule
+
+# Convenience name for target.
+kitty: CMakeFiles/kitty.dir/rule
+
+.PHONY : kitty
+
+# clean rule for target.
+CMakeFiles/kitty.dir/clean:
+	$(MAKE) -f CMakeFiles/kitty.dir/build.make CMakeFiles/kitty.dir/clean
+.PHONY : CMakeFiles/kitty.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/kitty.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/corner.dir
 
 # All Build rule for target.
