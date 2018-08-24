@@ -222,7 +222,7 @@ int main(int argc, char* argv[]) {
 		//img.copyTo(gray);
 		cvtColor(img, gray, COLOR_BGR2GRAY);
 		Mat th;
-		threshold(gray, th, 80, 255, CV_THRESH_BINARY_INV);
+		threshold(gray, th, 120, 255, CV_THRESH_BINARY_INV);
 
 		vector<vector<Point> > cont;
 		findContours(th, cont, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));

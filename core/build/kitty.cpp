@@ -103,11 +103,12 @@ int main(int argc, char* argv[])
 
 
 			if(headerread % 2 == 1){
+				ya[headerread/2] = atof(str);
+				cout << "y["<<headerread/2-1<<"]:"<<ya[headerread/2-1] << endl;
+			}else{
 				xa[headerread/2] = atof(str);
 				cout << "x["<<headerread/2<<"]:"<<xa[headerread/2] << endl;
-			}else{
-				ya[headerread/2-1] = atof(str);
-				cout << "y["<<headerread/2-1<<"]:"<<ya[headerread/2-1] << endl;
+
 			}
 
 
@@ -118,7 +119,7 @@ int main(int argc, char* argv[])
 	in.close();
 
 
-  frame = imread("testcalibnew1.jpg", CV_LOAD_IMAGE_COLOR);
+  frame = imread("core/testcalibnew1.jpg", CV_LOAD_IMAGE_COLOR);
   imwrite("core/outputs/sss.jpg", frame2);
 
 	Mat map1,map2;
@@ -192,10 +193,10 @@ int main(int argc, char* argv[])
 			}
 		}
 	}
-	corners1[0].push_back(Point2f(xa[0], ya[0]));
-	corners1[1].push_back(Point2f(xa[1], ya[1]));
-	corners1[2].push_back(Point2f(xa[2], ya[2]));
-	corners1[3].push_back(Point2f(xa[3], ya[3]));
+	corners1[0].push_back(Point2f(xa[2], ya[2]));
+	corners1[1].push_back(Point2f(xa[3], ya[3]));
+	corners1[2].push_back(Point2f(xa[4], ya[4]));
+	corners1[3].push_back(Point2f(xa[5], ya[5]));
 	drawContours(img_cont, contours, cont_index, Scalar(255, 255, 255), 1, 8, hierarchy, 0, Point());
 	Mat re4;
 	resize(img_cont, re4, cv::Size(640, 480));
@@ -286,10 +287,10 @@ int main(int argc, char* argv[])
 			}
 		}
 	vector<Point2f>cornerupdate[4];
-	corners2[0].push_back(Point(xa[7], ya[7]));
-	corners2[1].push_back(Point(xa[6], ya[6]));
-	corners2[2].push_back(Point(xa[5], ya[5]));
-	corners2[3].push_back(Point(xa[4], ya[4]));
+	corners2[0].push_back(Point(xa[0], ya[0]));
+	corners2[1].push_back(Point(xa[1], ya[1]));
+	corners2[2].push_back(Point(xa[6], ya[6]));
+	corners2[3].push_back(Point(xa[7], ya[7]));
 	putText(img_cont2, to_string(1), Point(corners2[0][0].x, corners2[0][0].y), FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 255, 255), 4);
 	putText(img_cont2, to_string(2), Point(corners2[1][0].x, corners2[1][0].y), FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 255, 255), 4);
 	putText(img_cont2, to_string(7), Point(corners2[2][0].x, corners2[2][0].y), FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 255, 255), 4);

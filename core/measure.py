@@ -21,6 +21,8 @@ def run():
     y_predict = models.predict_main_model(filename)
     points = y_predict[0]
     img = Image.open(filename)
+    im_x,im_y = img.size
+    print("Image Size:"+str(im_x) + "," + str(im_y))
     img.save("core/outputs/original.jpg")
     threshold = 0.8
 
@@ -32,7 +34,13 @@ def run():
     file.write(str(0 if(typex == "panty") else 1) + '\n')
     file.close()
     for i in range(0,len(points),2):
-        area = (points[i] - x_off_p, points[i+1] - y_off_p, points[i] + x_off_p , points[i+1] + y_off_p )
+        x_top = points[i] - x_off_p if (points[i] - x_off_p > 0) else 0
+        y_top = points[i+1] - y_off_p if (points[i+1] - y_off_p > 0) else 0
+        x_down = points[i] + x_off_p if (points[i] + x_off_p < im_x) else im_x
+        y_down = points[i+1] + y_off_p if (points[i+1] + y_off_p < im_y) else im_y
+
+        area = (x_top, y_top, x_down , y_down )
+        print("Area:"+str(int(i/2)),area)
         cropped_img = np.array(img.crop(area).convert('L'))
         scipy.misc.imsave("core/outputs/cropped_"+str(int(i/2))+".jpg", cropped_img)
         file = open("core/outputs/areas.txt","a")

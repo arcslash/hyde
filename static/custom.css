@@ -1,30 +1,119 @@
-html, body {margin: 0; height: 100%; overflow: hidden}
-#video_area{
-  padding: 10px 10px 10px 10px;
-  width:640px;
-  height:480px;
-
-
+:root {
+    --colour_full_background: #2d3436;
+    --colour_video_container: #636e72;
+    --colour_graph: #9199BE;
+    --colour_button_true: blue;
+    --colour_button_false: red;
 }
-
-#view_control_area{
-  padding: 10px 10px 10px 10px;
-
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--colour_full_background);
 }
-
 #garment_image{
-  width:320px;
-  height:240px;
+  width:auto;
+  height:auto;
 }
 #measurement_title{
     text-align: center;
 
 }
 #btn_getmeasurements{
-    align="right";
     padding: 10px 10px 10px 10px;
-
 }
 .w3-container{
   padding: 10px 10px 10px 10px;
 }
+#camera_btn{
+  position: relative;
+  top: 50%;
+  left: 280px;
+}
+#camera_container{
+  background-color: var(--colour2);
+  width:75%;
+}
+#garment_info_container{
+  background-color: var(--colour3);
+}
+
+/* Popup add new garment dialog (background) */
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#garment_container{
+    display:inline-block;
+    width:fit-content;
+    height:fit-content;
+    margin: 0 auto;
+    background: black;
+    position:relative;
+    border:5px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 50px #333
+}
+#garment_inputs{
+    margin-top: 30px;
+
+}
+#canvas_image{
+    height: auto;
+    width: auto;
+    position: absolute;
+    z-index: 1;
+}
+
+#pointsCanvas{
+    position:relative;
+    /*height: auto;*/
+    /*width: auto;*/
+
+    z-index:20;
+}
+#btn_add_garment{
+    margin-top: 50px;
+    margin-left: 600px;
+    height: 40px;
+    width: 100px;
+}
+#btn_cancel_garment{
+   margin-top: 50px;
+    height: 40px;
+    width:  100px;
+}
+

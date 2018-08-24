@@ -1,118 +1,143 @@
 <html>
-  <head>
+<head>
     <link rel="stylesheet" href="static/bootstrap.min.css">
-      <link rel="stylesheet" href="static/custom.css">
-  <script src="static/jquery-3.3.1.min.js"></script>
-  <script src="static/bootstrap.min.js"></script>
-  <script src="static/custom.js"></script>
-    <title>Hydra</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-  <a class="navbar-brand" href="localhost:5000">The Measurement Analyzing Tool</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <link rel="stylesheet" href="static/custom.css">
+    <script src="static/jquery-3.3.1.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
 
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Control Room</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tools
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Add a New Garment</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">About</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Help</a>
-      </li>
-    </ul>
-  </div>
+    <title>Hydra</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="localhost:5000">HYDRA - The Measurement Analyzing Tool</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+        <!-- <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Control Room</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tools
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Add a New Garment</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">About</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul> -->
+    </div>
 </nav>
 
 <!--End of navigation bar-->
 
 <!--Start body container-->
 <div class="w3-container">
-  <div  class="row">
-    <div class="col-md-6" style="background-color: black;">
-        <img id='video_feed' align="left" src="data/0001.jpg">
+    <div class="row">
+        <div class="col-md-6" id="camera_container">
 
-         <!-- <img class="img-fluid" src="http://localhost:5000/video_feed" alt="Card image cap"> -->
+            <img class="img-fluid" src="static/test_image.jpg" alt="Card image cap"/>
+
+            <!--<img class="img-fluid" src="http://localhost:5000/video_feed" alt="Card image cap">-->
+            <div id="button_controls">
+                <Button id="camera_btn" onclick="camera()" class="btn btn-primary btn-sm" id="btn_camera">
+                    Camera ON
+                </Button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="margin:10px" id="garment_info_container">
+                <!--Card image-->
+                <img class="img-fluid" src="static/image002.jpg" height="220" width="260" alt="Card image cap">
+
+
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">Current Garment</h4>
+                    <!--Text-->
+                    <p>Garment Name: FlyKnit Bra</p>
+                    <p>Added Date: 2018/08/15</p>
+                    <p>Current Status:In Production</p>
+
+                    <Button onclick="measure()" class="btn btn-primary btn-sm" id="btn_getmeasurements">MEASURE</Button>
+
+
+                </div>
+                <button id="btn_add" onclick="add_garment()">ADD A NEW GARMENT</button>
+                <!-- The Modal -->
+                <div id="popup_window" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close" id="span_close">&times;</span>
+                        <form id="garment_inputs">
+                           <h3><span class="label label-default">GARMENT NAME:</span></h3>
+                            <input type="text" name="Name of the Garment" placeholder="Name of the Garment"><br>
+                            Select the point regions of interest:<br>
+
+                        </form>
+                        <div id="garment_container">
+                                <img class='img-fluid' src="static/test_image.jpg" alt="" id="canvas_image"/>
+                                <canvas id="pointsCanvas"></canvas>
+                            </div>
+                        <div>
+                            <Button onclick="measure()" class="btn btn-primary btn-sm" id="btn_add_garment">Submit</Button>
+                            <Button onclick="measure()" class="btn btn-primary btn-sm" id="btn_cancel_garment">Cancel</Button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
     </div>
-    <div class="col-md-6">
-      <div class="card" style="margin:10px">
-               <!--Card image-->
-               <img class="img-fluid" src="static/image002.jpg" height="220" width="260" alt="Card image cap">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Param</th>
+                    <th scope="col">Merasurement</th>
 
-               <!--Card content-->
-               <div class="card-body">
-                   <!--Title-->
-                   <h4 class="card-title">Current Garment</h4>
-                   <!--Text-->
-                   <p>Garment Name: FlyKnit Bra</p>
-                   <p>Added Date: 2018/08/15</p>
-                   <p>Current Status:In Production</p>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Width</td>
+                    <td>10 mm</td>
 
-                       <Button onclick="measure()" class="btn btn-primary btn-sm" id="btn_getmeasurements">Measure</Button>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Height</td>
+                    <td>20 mm</td>
 
-
-               </div>
-           </div>
-      <!--<h6>Current Garment</h6>
-      <img id='garment_image'class="img-thumbnail" height="120" width="160" src="static/image002.jpg"/>
-      <div class="col-sm-2">
-        <p>Garment Name: FlyKnit Bra</p>
-        <p>Added Date: 2018/08/15</p>
-        <p>Current Status:In Production</p>
-          <Button onclick="measure()" class="btn btn-primary btn-lg" id="btn_getmeasurements">ADD NEW GARMENT</Button>
-      </div>-->
-
-  </div></div>
-  <div  class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered table-dark">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Param</th>
-            <th scope="col">Merasurement</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Width</td>
-            <td>10 mm</td>
-
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Height</td>
-            <td>20 mm</td>
-
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Sply</td>
-            <td>2</td>
-          </tr>
-        </tbody>
-      </table>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Sply</td>
+                    <td>2</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 
 
-
-
 </body>
+<script src="static/custom.js"></script>
 </html>
